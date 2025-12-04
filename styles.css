@@ -1,0 +1,141 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #141414;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent: #ffffff;
+    --accent-text: #000000;
+    --accent-hover: #e0e0e0;
+    --success: #10b981;
+    --error: #ef4444;
+    --radius: 20px;
+    --shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+    --border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: 10px;
+    background: linear-gradient(to bottom right, #ffffff, #666666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle { color: var(--text-secondary); margin-bottom: 20px; font-weight: 400; }
+
+#score-container {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.05);
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: var(--border);
+    margin-bottom: 40px;
+    display: inline-block;
+}
+#score-value { color: var(--text-primary); }
+
+#status {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: pulse 1.5s infinite;
+}
+
+.game-container {
+    display: none; 
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.card {
+    background: var(--card-bg);
+    width: 280px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    border: var(--border);
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.poster-wrapper {
+    width: 100%;
+    height: 380px;
+    background: #0f0f0f;
+    position: relative;
+}
+.poster-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 150px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content { padding: 24px; position: relative; z-index: 2; margin-top: -60px; }
+.card h2 { margin: 0 0 8px 0; font-size: 1.3rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; }
+.meta { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; margin-bottom: 15px; }
+.stat { font-size: 2.2rem; font-weight: 800; color: #fff; display: inline-block; letter-spacing: -1px; }
+
+.hidden { display: none !important; }
+
+#result { height: 30px; margin-top: 40px; font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.correct { color: var(--success); text-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+.wrong { color: var(--error); text-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+
+button {
+    background-color: var(--accent);
+    color: var(--accent-text);
+    border: none;
+    padding: 18px 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.2s;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+button:hover { background-color: var(--accent-hover); transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+
+@keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

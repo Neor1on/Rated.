@@ -130,7 +130,7 @@ function checkWinner(selectedId) {
     } else {
         if (score > 0)
             score--; 
-        resultMsg.innerText = "Wrong! Score reset.";
+        resultMsg.innerText = "Wrong!";
         resultMsg.className = "wrong";
         scoreValue.style.color = "var(--error)";
     }
